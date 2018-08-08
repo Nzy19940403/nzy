@@ -1,0 +1,645 @@
+html,body{
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    overflow: hidden;
+}
+*{
+    outline: none;
+    box-sizing: border-box;
+}
+body{
+    background: url(../sample/v17-pascal-nosenzo.png) no-repeat 50% 50%;
+    background-size: 100% 100%;
+}
+.window{
+    height: 450px;
+    width: 800px;
+    border: 1px solid #ddd;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: #fff;
+    margin-top: -225px;
+    margin-left: -400px;
+    box-shadow: 0 1px 8px 0 rgba(33,43,54,.15), 0 2px 4px 0 rgba(33,43,54,.05);
+    z-index: 1000;
+}
+/* title //////////////////////////////////////////////////////////////////*/
+.window-title{
+    height: 40px;
+    background: -webkit-linear-gradient(left,#4c8cfe,#1fd2ff);
+    background: linear-gradient(left,#4c8cfe,#1fd2ff);
+    position: relative;
+}
+.title-buttons{
+    position: absolute;
+    top: 0px;
+    right: 5px;
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    height: 36px;
+    line-height: 36px;
+    z-index: 2000;
+}
+.title-buttons li{
+    float: left;
+    height: 100%;
+    margin-right: 3px;
+    padding: 0px 2px;
+}
+.title-buttons button{
+    font-size: 16px;
+    background: none;
+    border: none;
+    color: #fff;
+}
+.title-buttons li:hover{
+    background: #50d8fe;
+}
+.title-buttons li:last-child:hover{
+    background: #ff5439;
+}
+.title-buttons .fa-square-o{
+    font-weight: bold;
+}
+.title-buttons .fa-angle-down{
+    font-size: 20px;
+    font-weight: bold;
+}
+.title-buttons .fa-close{
+    font-size: 18px;
+}
+.search{
+    width: 58px;
+    z-index: 200;
+}
+.search button{
+    background:#6fa8fe;
+    border: none;
+    position: absolute;
+    left: 20px;
+    top: 6px;
+    z-index: 2;
+    height: 25px;
+    width: 20px;
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+}
+.search button i{
+    position: relative;
+    left: -2px;
+}
+.comm-name{
+    line-height: 38px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    text-align: center;
+    user-select: none;
+    color: #fff;
+    font-family: "微软雅黑";
+}
+.comm-name span{
+    cursor: pointer;
+    
+}
+.comm-name span:hover{
+    text-decoration: underline;
+}
+.search::before,.search::after{
+    content: '';
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    background:#6fa8fe;
+    position: relative;
+    border-radius: 50%;
+}
+.search::before{
+    top: 6px;
+    left: 10px;
+}
+.search::after{
+    top: 6px;
+    left: -4px;
+}
+.search.button-hover button,
+.search.button-hover::before,
+.search.button-hover::after{
+    background: #88b6ff;
+}
+/* content //////////////////////////////////////////////////////////////////////////*/
+.window-content{
+    height: calc(100% - 40px);
+    position: relative;
+}
+.window-content>div{
+    height: 100%;
+    float: left;
+}
+.window-content .left{
+    width: 200px;
+    border-right: 1px solid #dddddd;
+    cursor: e-resize;
+    position: relative;
+}
+.window-content .center{
+    width: calc(100% - 200px - 135px);
+   
+}
+.window-content .right{
+    width: 135px;
+    border-left: 1px solid #dddddd;
+    z-index: 100;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    background: #fff;
+}
+.qqshow,.chat-histroy{
+    display: none;
+}
+.qqshow.active,
+.chat-histroy.active
+{
+    display: block;
+    height: 100%;
+    position: relative;
+}
+
+.chat-space{
+    height: calc(100% - 50px - 122px)
+}
+.input-space{
+    height: 122px;
+    border-top: 1px solid #dddddd;
+    padding-top: 3px;
+    cursor: n-resize;
+}
+.chat-space-button {
+    text-align: center;
+}
+.chat-space-button button{
+    background: none;
+    border: none;
+    color: #4693fe;
+    cursor: pointer;
+}
+.chat-space-button button:hover{
+    text-decoration: underline;
+}
+
+
+/* funcs ///////////////////////////////////////////////////////////////////////////////*/
+.funcs{
+    height: 50px;
+    position: relative;
+}
+.buttons-wrap{
+    float: right;
+    height: 50px;
+    width: 140px;
+    overflow: hidden;
+}
+.funcs .right-button{
+    float: right;
+    height: 100%;
+    width: 46px;
+    overflow: hidden;
+    z-index: 10;
+    background: #fff;
+    position: relative;
+}
+.funcs .right-button button{
+    background: url(../sample/2.png) no-repeat 100% 100%;
+    border: none;
+    /* height: 78%; */
+    width:76%;  
+    position: absolute; 
+    margin-top:20%;
+    height: 58%;
+    border-radius: 50%;
+}
+.funcs .right-button button.change1{
+    background:url(../sample/3.png) no-repeat 100% 100%;
+    /* height: 80%; */
+    width:80%;
+    height: 60%;
+}
+.funcs .right-button button.button-hover{
+    background:url(../sample/4.png) no-repeat 100% 100%;
+    /* height: 82%; */
+    width:78%;
+    height: 62%;
+}
+.funcs .right-button button.change2{
+    background:url(../sample/5.png) no-repeat 100% 100%;
+    /* height: 80%; */
+    width:80%;
+    height: 60%;
+}
+.funcs .buttons{
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    height: 40px;
+    width: 262px;
+    position: absolute;
+    right:-120px;
+}
+.funcs .buttons li{
+    float: left;
+    height: 100%;
+    line-height: 46px;
+    margin-left: 13px;
+}
+.funcs .buttons li button{
+    border:none;
+    height: 30px;
+    width: 30px;
+    border-radius: 44%;
+    font-size: 16px;
+}
+
+.funcs .buttons .phone{
+    background: #e4faf5;
+    color: #27d6ac;
+}
+
+.funcs .buttons .video{
+    background: #ededff;
+    color: #6d6fff;
+}
+
+.funcs .buttons .new-chat{
+    background: #ededff;
+    color: #12b7f5;
+}
+
+.funcs .buttons .share{
+    background: #fff5e1;
+    color: #ffb423;
+}
+
+.funcs .buttons .control{
+    background: #ffeeec;
+    color: #ff6c5c;
+}
+.funcs .buttons .email{
+    background: #e5faf5;
+    color:#27d6ac;
+}
+.funcs .buttons .email i,
+.funcs .buttons .control i,
+.funcs .buttons .share i
+{
+    position: relative;
+    top:1px;
+}
+/* input-space////////////////////////////////////////////////////// */
+.input-space-buttons{
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px 0px 0px 10px;
+    height: 25px;
+    cursor: default;
+    position: relative;
+}
+.input-space-buttons li{
+    float: left;
+    height: 100%;
+    line-height: 26px;
+    margin-left: 2px;
+    border-radius: 4px;
+}
+.input-space-buttons li button{
+    background: transparent;
+    border: none;
+    font-size: 18px;
+    color:#888;
+    padding: 0px 5px;
+    
+}
+.input-space-buttons li:hover{
+    background: #f1f1f1;
+}
+.input-space-buttons li.special{
+    position: absolute;
+    right: 5px;
+}
+.input-space-buttons li button .fa-mobile{
+    font-size: 20px;
+}
+.input-space-area{
+    width: 100%;
+    height: 50px;
+    border: none;
+    resize: none;
+    font-family: "微软雅黑";
+    font-size: 14px;
+    padding: 5px;
+}
+.input-btn{
+    width: 100%;
+    height: calc(100% - 50px - 30px);
+    cursor: default;
+    
+}
+.input-btn button{
+    float: right;
+    margin-right: 10px;
+}
+.default-btn{
+    background: #fff;
+    font-family: "微软雅黑";
+    padding: 3px 10px;
+    line-height: 26px;
+    border-radius: 4px;
+    border:1px solid #eee;
+    min-width: 68px;
+}
+.default-btn:hover{
+    background: #efeff0;
+    border-color: #ddd;
+}
+.primary-btn{
+    border:none;
+    background: #12b7f5;
+    font-family: "微软雅黑";
+    color: #fff;
+    padding: 3px 10px;
+    line-height: 26px;
+    border-radius: 4px;
+}
+.primary-btn:hover{
+    background: #47c8f8;
+}
+.primary-btn i{
+    border-left: 1px solid rgba(255, 255, 255, .3);
+    font-size: 18px;
+    padding-left: 7px;
+}
+.input-btn .primary-btn{
+    position: relative;
+}
+.primary-btn.icon{
+    padding-left: 2px;
+}
+.input-btn .primary-btn{
+    border-radius: 4px 0px 0px 4px;
+}
+.input-btn .primary-btn.icon{
+    border-radius: 0px 4px 4px 0px ;
+    margin-left: -12px;
+}
+/* comm-list////////////////////////////////////// */
+.window-content .left .comm-list{
+    width: 98%;
+    height: 100%;
+    cursor: default;
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+}
+.comm-css{
+    width: 100%;
+    height: 50px;
+}
+.comm-css span{
+    float: left;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: url(../sample/qq.jpg) no-repeat 77% 100%;
+    margin: 4px 0px 0px 5px;
+    overflow: hidden;
+}
+.comm-css i{
+    color: #fff;
+    float: right;
+    width: 20px;
+    height: 20px;
+    margin:15px 5px;
+    background: #888;
+    text-align: center;
+    border-radius: 50%;
+    font-weight: 100;
+    line-height: 19px;
+}
+/* qqshow///////////////////////////////////////////////////////////////// */
+.qqshow.active{
+    background: url(../sample/6.png) no-repeat 60% 50%;
+}
+/* other /////////////////////////////////////////////////////////////////////*/
+body .mCSB_scrollTools .mCSB_draggerRail{
+    width: 6px;
+    
+}
+body .mCSB_scrollTools{
+    top: 5px;
+}
+.comm-open.hidden,.comm-plus.hidden,.window.hidden{
+    display: none;
+}
+body .compact.window{
+    height: calc(100% - 43px);
+    width: 100%;
+    border: 1px solid #ddd;
+    position: absolute;
+    top: 0% ;
+    left: 0%;
+    margin:0px;
+    box-shadow: 0 1px 8px 0 rgba(33,43,54,.15), 0 2px 4px 0 rgba(33,43,54,.05);
+}
+.compact .qqshow{
+    background:url(../sample/6.png) no-repeat 60% 0%;
+}
+.left.hidden{
+    display: none;
+}
+.window.changeList{
+    width: 600px;
+    margin-left: -300px;
+}
+.window.changeList .window-content .left{
+    display: none;
+}
+.window.changeList .window-content .center{
+    width: calc(100% - 135px);
+    
+}
+
+.box{
+    padding: 4px 10px;
+    margin: 20px;
+    overflow: hidden;
+}
+.box span{
+    border:1px solid #4693fe;
+    background: #4693fe;
+    color: #000;
+    font-size: 14px;
+    font-family: "微软雅黑";
+    border-radius: 5px;
+    float: right;
+    padding: 4px 10px;
+}
+
+
+
+/* qq */
+.btn{
+    background: transparent;
+    border:1px solid transparent;
+    width: 80px;
+    height: 90px;
+    overflow: hidden;
+    font-size: 14px;
+}
+.btn.hover{
+    background: rgba(234,244,253,0.1);
+    border-color: #b4d5fb;
+}
+.btn.hover.chosed{
+    background: rgba(234,244,253,1);
+    border-color: #b4d5fb;
+}
+.btn.chosed{
+    background: rgba(234,244,253,0.6);
+    border-color: #b4d5fb;
+}
+.btn i{
+    display: block;
+    margin: 0px auto;
+    height: 66px;
+    width: 66px;
+}
+.btn.comm-open i{
+    display: block;
+    margin: 0px auto;
+    height: 66px;
+    width: 66px;
+    background: url(../sample/tx.png) no-repeat 50% 50% ;
+    background-size:135% 95%;
+    -moz-background-size:135% 95%;
+}
+.btn span{
+    display: block;
+    margin: 0px auto;
+    text-align: center;
+    width: 100%;
+    word-wrap: break-word;
+    font-size: 1em;
+    font-family: "微软雅黑";
+
+}
+
+/* cell背景栅格 */
+.cell{
+    z-index: -1;
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+
+}
+.cell li{
+    height:90px;
+}
+.file-wrap-cell{
+    position: absolute;
+    height: 90px;
+    width: 80px;
+    left: 0px;
+}
+.file-wrap-cell button{
+    z-index: 100;
+
+}
+
+#footer{
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    height: 43px;
+    background: rgba(33,43,54,.5);
+    z-index: 2000;
+}
+
+#cellbutton1{
+    background: url(../sample/go.png) no-repeat 50% -40% ;
+    background-size:130% 90%;
+    -moz-background-size:130% 90%;
+}
+#cellbutton2{
+    background: url(../sample/dota2.png) no-repeat 50% 0% ;
+    background-size:90% 74%;
+    -moz-background-size:90% 74%;
+}
+.btn.clone{
+    position: absolute;
+    display: none;
+}
+.btn.clone.move{
+    display: block;
+    opacity: 0.5;
+}
+#footer>div{
+    float: left;
+}
+#startbutton{
+    background:  url(../sample/start.png) no-repeat 40% 50%;
+    height: 100%;
+    width: 55px;
+    background-size:90% 80%;
+}
+#startbutton:hover{
+    background: #000 url(../sample/start2.png) no-repeat 40% 50%;
+    height: 100%;
+    width: 55px;
+    background-size:90% 80%;
+}
+
+#footer-taskbar{
+    min-width: 10px;
+    height: 100%;
+}
+.min-win{
+    border: none;
+    height: 100%;
+    padding: 0px 20px;
+    background: rgba(163, 163, 163, 0.8);
+    color:#fff;
+}
+.min-win i{
+    font-size: 20px;
+}
+#searchbar{
+    width: 300px;
+    background: #000;
+    opacity: 0.5;
+    height: 100%;
+    line-height: 43px;
+    color: #fff;
+    padding-left: 20px;
+    margin-left: 3px;
+}
+#footer #time-teller{
+    float: right;
+    width: 100px;
+    height: 100%;
+}
+#time-teller>div{
+    height: 50%;
+    background: #000;
+    opacity: 0.5;
+    color: #fff;
+    line-height: 21px;
+    text-align: center;
+
+}
